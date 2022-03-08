@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'app/css/styles.css' %} ">
+    <title>Database</title>
+</head>
+
+<body>
+
+    <!-- <form action="" method="get"></form> -->
+
+    <div>
+
+        <form action="http://localhost:8000/admin/app/student/" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="sname" id=""></td>
+                </tr>
+
+                <tr>
+                    <td>Roll No</td>
+                    <td><input type="text" name="srno" id=""></td>
+                </tr>
+
+                <tr>
+                    <td>Section</td>
+                    <td><input type="text" name="ssec" id=""></td>
+                </tr>
+
+                <tr>
+                    <td>Course</td>
+                    <td><input type="text" name="scourse" id=""></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="save"></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+
+
+    <!-- for viewing the data from table -->
+    <div>
+        <table>
+            <tr>
+                <td> Name</td>
+                <td>Roll No.</td>
+                <td>Section</td>
+                <td>Course</td>
+            </tr>
+
+            <!-- for tempalte tag 
+                {} for variable_name in variable_name_in_which_all_table_data_is_stored }
+            -->
+
+            {% for stdnt in student %}
+
+            <tr>
+                <td> {{stdnt.sname}} </td>
+                <td> {{stdnt.srno}} </td>
+                <td> {{stdnt.ssec}} </td>
+                <td> {{stdnt.scourse}} </td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+</body>
+
+</html>
