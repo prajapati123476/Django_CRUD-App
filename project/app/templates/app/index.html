@@ -18,7 +18,7 @@
 
     <div>
 
-        <form action="http://localhost:8000/admin/app/student/" method="post">
+        <form action="{% url 'save_student' %}" method="post">
             {% csrf_token %}
             <table>
                 <tr>
