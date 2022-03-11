@@ -7,4 +7,5 @@ urlpatterns = [
     path('save', views.saveStdent, name="save_student"),
     path('updateStudent', views.updateStudent, name="updateStudent"),
     path('update', views.update, name="update"),
+    path('delete', views.delete, name="delete"),
 ]
