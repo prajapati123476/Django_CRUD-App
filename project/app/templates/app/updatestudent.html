@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'app/css/styles.css' %} ">
+    <title>Update Database</title>
+</head>
+
+<body>
+
+    <!-- <form action="" method="get"></form> -->
+
+    <div>
+
+        <!-- <form action="http://localhost:8000/admin/app/student/" method="post"> -->
+        <!-- <form action="http://localhost:8000/app/view" method="post"> -->
+        <form action="{% url 'save_student' %}" method="post">
+
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="sname" id="" value="{{std.sname}}"></td>
+                </tr>
+
+                <tr>
+                    <td>Roll No</td>
+                    <td><input type="text" name="srno" readonly id="" value="{{std.srno}}"></td>
+                </tr>
+
+                <tr>
+                    <td>Section</td>
+                    <td><input type="text" name="ssec" id="" value="{{std.ssec}}"></td>
+                </tr>
+
+                <tr>
+                    <td>Course</td>
+                    <td><input type="text" name="scourse" id="" value="{{std.scourse}}"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="hidden" name="" id="" value="{{std.id}}"></td>
+                    <td><input type="submit" value="update"></td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- <a href="{% url 'index' %}">index</a> -->
+
+    </div>
+
+
+</body>
+</html>

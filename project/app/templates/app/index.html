@@ -18,7 +18,10 @@
 
     <div>
 
+        <!-- <form action="http://localhost:8000/admin/app/student/" method="post"> -->
+        <!-- <form action="http://localhost:8000/app/view" method="post"> -->
         <form action="{% url 'save_student' %}" method="post">
+
             {% csrf_token %}
             <table>
                 <tr>
@@ -48,17 +51,19 @@
             </table>
         </form>
 
+        <!-- <a href="{% url 'index' %}">index</a> -->
+
     </div>
 
 
     <!-- for viewing the data from table -->
     <div>
-        <table>
+        <table  style="width: 800px;">
             <tr>
-                <td> Name</td>
-                <td>Roll No.</td>
-                <td>Section</td>
-                <td>Course</td>
+                <td><h1> Name</h1></td>
+                <td><h1>Roll no</h1></td>
+                <td><h1>Section</h1></td>
+                <td><h1>Course</h1></td>
             </tr>
 
             <!-- for tempalte tag 
@@ -72,6 +77,9 @@
                 <td> {{stdnt.srno}} </td>
                 <td> {{stdnt.ssec}} </td>
                 <td> {{stdnt.scourse}} </td>
+                <td><a href="http://localhost:8000/app/updateStudent?id={{stdnt.id}}">Edit</a></td>
+                <td><a href="http://localhost:8000/app/delete?id={{stdnt.id}}">Delete</a></td>
+            
             </tr>
 
             {% endfor %}
@@ -81,5 +89,4 @@
 
 
 </body>
-
 </html>
