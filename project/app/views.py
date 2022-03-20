@@ -40,7 +40,8 @@ def updateStudent(request):
     return res
 
 def update(request):
-    std = models.Student()
+    user_id = request.POST['id']
+    std = models.Student.objects.get(id = user_id)
     std.id = request.POST['id']
     std.sname = request.POST['sname']
     std.srno = request.POST['srno']
